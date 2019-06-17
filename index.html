@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h1>
         5555
     </h1>
+
+    <input type="number" id="x" />
+    <select name="" id="">
+        <option>+</option>
+        <option>-</option>
+        <option>x</option>
+        <option>/</option>
+    </select>
+
+    <input type="number" id="y" />
+    <input type="button" value="=" onclick="doCal()" />
+    <span id="result">test</span>
+
+
+    <script>
+        function doCal() {
+            let x = document.getElementById("x").value;
+            let y = document.getElementById("y").value;
+            let result = document.getElementById("result");
+            x = parseInt(x);
+            y = parseInt(y);
+
+            // +
+            // // let z = x + y;
+            // result.innerHTML = z;
+
+            // 除
+            let z1 = parseInt(x / y);
+            let z2 = x % y;
+            result.innerHTML = z1 + "......" + z2;
+
+        }
+
+    </script>
 </body>
+
 </html>
