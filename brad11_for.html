@@ -1,0 +1,19 @@
+<script>
+
+    //可建立多道敘述句
+
+    function myinit() {
+        document.write("Hello, Brad<br>");
+    }
+    function drawLine() {
+        document.write("<hr>");
+    }
+    let i = 0;//i 現為區域變數
+    for (myinit(); i < 10; drawLine()) {
+        document.write(i++ + "<br>");
+    }
+
+    document.write("<hr>");
+    document.write(i);
+
+</script>

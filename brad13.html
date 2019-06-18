@@ -1,0 +1,63 @@
+<script>
+
+    // //陣列
+
+    // let a = [1, 2, 3, 4];
+    // document.write(typeof(a) + ":" + a.length + "<br>");
+    // a[4] = 123;
+    // document.write(a[4] + "<br>");
+    // document.write(a.length + "<br>");
+    // a[100] = 34;
+    // document.write(a[100] + "<br>");
+    // document.write(a.length);
+    // document.write(a[87] + "<br>");
+
+
+    // //擲骰子 實驗組 (原始的方法) .1
+    // let p1, p2, p3, p4, p5, p6;
+    // p1 = p2 = p3 = p4 = p5 = p6 = 0;
+
+    // for (let i = 0; i < 100; i++) {
+    //     let rand = parseInt(Math.random() * 6) + 1; //1~6
+
+    //     switch(rand){
+    //         case 1:p1++:break;
+    //         case 2:p2++:break;
+    //         case 3:p3++:break;
+    //         case 4:p4++:break;
+    //         case 5:p5++:break;
+    //         case 6:p6++:break;
+    //     }
+
+    // }
+
+
+
+    // // 對照組 .2
+    // let p = [0, 0, 0, 0, 0, 0, 0]; //p[0] = 0,p[1] = 0,...p[5] = 0;
+    // for (let i = 0; i < 10000; i++) {
+    //     let rand = parseInt(Math.random() * 6) + 1; //0-5
+    //     p[rand]++;
+
+    // }
+
+    // for (let i = 1; i < p.length; i++) {
+    //     document.write(`${i}: ${p[i]} times<br>`);
+    // }
+
+
+
+    //作弊的骰子 .3
+    let p = [0, 0, 0, 0, 0, 0, 0]; //p[0] = 0,p[1] = 0,...p[5] = 0;
+    for (let i = 0; i < 10000; i++) {
+        let rand = parseInt(Math.random() * 9) + 1; //0-5
+        p[rand <= 6 ? rand : rand - 3]++;
+
+    }
+
+    for (let i = 1; i < p.length; i++) {
+        document.write(`${i}: ${p[i]} times<br>`);
+    }
+
+
+</script>
