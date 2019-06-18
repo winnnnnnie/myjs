@@ -1,0 +1,55 @@
+
+&spades;<hr>
+&hearts;<hr>
+&diamond;<hr>
+&clubs;
+
+<script>
+//洗牌+花色git 與 pokerv3 對照
+    let poker = [];
+    for (let i = 0; i < 10; i++)poker[i] = i;
+
+    for (let i = poker.length - 1; i > 0; i--) {
+        let rand = parseInt(Math.random() * (i + 1));
+        [poker[i], poker[rand]] = [poker[rand], poker[i]];
+    }
+    for (let i in poker) {
+        document.write(poker[i] + "<br>");
+    }
+
+    document.write("<hr>");
+    let players = [[], [], [], []];
+    for (let i = 0; i < poker.length; i++) {
+        players[i % 4][parseInt(i / 4)] = poker[i];
+    }
+
+</script>
+<table width="100%" border="1" style="border-collapse:collapse ;">
+
+    <script>
+        for (let player of playrs) {
+            document.write("<tr>");
+            for (let card of player) {
+                document.write("<td>");
+                document.write(card);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+
+
+    </script>
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
