@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table border="1" width="100%" ;>
+
+        <script>
+            let row = 10;
+            let start = 1;
+            let nTd = 10;
+
+            for (let k = 0; k < row; k++) {
+                
+                for (let j = start; j < (start + nTd); j++) {
+                    let newj = j + k * nTd;
+
+                    let isPink;
+                    if (newj % 2 == 0) {
+                        isPink = (newj + k) % 2 == 0;
+                    } else {
+                        isPink = (newj) % 2 == 0;
+                    }
+
+                    document.write("<td >");
+                    for (let i = 1; i <= 1; i++) {
+                        let r = newj * i;
+                        document.writeln(`${newj}`);
+                    }
+                    document.write("</td>");
+
+                }
+                document.write("</tr>");
+            }
+
+        </script>
+
+    </table>
+
+
+
+
+</body>
+
+</html>
