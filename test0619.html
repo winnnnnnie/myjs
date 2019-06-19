@@ -8,21 +8,19 @@
     <title>Document</title>
 
     <style>
-        .form {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid #ccc;
-            text-align: center;
+ .form{
+     width: 100%;
+     border-collapse: collapse;
+     border: 1px solid #ccc;
+     text-align: center;
 
-        }
-
-        .form td {
-            width: calc(100% / 10);
-            height: 45px;
-            line-height: 45px;
-            font-family: Arial, Helvetica, sans-serif;
-
-        }
+ }
+ .form td{
+    height: 45px;
+    line-height: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+     
+ }
     </style>
 </head>
 
@@ -41,15 +39,31 @@
 
                     let isPink;
 
-                    if (newj % 2 == 0 && newj !== 2 || newj % 3 == 0 && newj !== 3 || newj % 5 == 0 && newj !== 5 || newj % 7 == 0 && newj !== 7 || newj == 1) {
+                    if (newj % 2 == 0 && newj !== 2 || newj % 3 == 0 && newj !== 3 || newj % 5 == 0&& newj !== 5 || newj % 7 == 0&& newj !== 7 || newj == 1) {
+
+
+
                         isPink = newj;
+
+
+
+
                     }
+
+
+
+
                     count = 0;
                     document.write("<td bgcolor='" + (isPink ? "#fff" : "yellow") + "'>");
                     for (let i = 1; i <= 1; i++) {
                         let r = newj * i;
                         document.writeln(`${newj}`);
                     }
+
+
+
+
+
                     document.write("</td>");
 
                 }
@@ -59,7 +73,22 @@
 
         </script>
     </table>
+    <script>
 
+        // for (var i = 2; i <= 100; i++) {
+        //     var count = 0;
+        //     for (var j = 1; j <= i; j++) {
+        //         if (i % j == 0) {
+        //             count++;
+        //         }
+        //     }
+        //     if (count == 2) {
+        //         str += "<span>" + i + "</span><br>";
+        //     }
+        //     count = 0;
+        // }
+        // wrap.innerHTML = str;
+    </script>
 
 </body>
 
