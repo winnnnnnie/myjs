@@ -1,0 +1,37 @@
+<script>
+    // 練習4_做出9x9
+    /// 建立document
+    let body = document.createElement('body');
+    document.body = body;
+
+    let head = document.createElement('h1');
+    head.innerHTML = "company";
+    document.body.appendChild(head);
+
+    /// 建立table 屬性
+    let table = document.createElement('table');
+    body.appendChild(table);
+
+    table.setAttribute('border', '1');
+    table.setAttribute('width', '100%');
+
+
+    for (let k = 0; k < 9; k++) {
+        let tr = document.createElement('tr');
+        table.appendChild(tr);
+
+        /// 產生4 TD
+        for (let i = 2; i < 6; i++) {
+            let td = document.createElement('td');
+            table.appendChild(td);//產生幾個td
+
+            let newi = i + k * 4;
+            for (let j = 1; j <= 9; j++) {
+                td.innerHTML += `${newi} x ${j} = ${newi * j}<br>`;
+            }//幾成幾
+
+        }
+    }
+
+
+</script>

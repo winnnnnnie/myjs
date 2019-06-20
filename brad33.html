@@ -1,0 +1,99 @@
+<h1 id="head"></h1>
+<hr>
+<canvas id="canvas" width="480" height="320" style="border: 1px solid black;"> </canvas>
+<input type="button" onclick='clearCanvans()' value='Clear' />
+<input type="button" onclick='moveBall()' value='move ball' />
+<script>
+
+    head.innerHTML = '44444';
+
+    let ctx = canvas.getContext('2d'); //渲染
+
+    // // =============畫圖==================
+    // ctx.fillStyle = 'rgb(255,0,0)';
+    // ctx.fillRect(50, 50, 100, 120);
+
+    // ctx.fillStyle = 'rgba(255,255,0,0.5)';//半透明
+    // ctx.fillRect(70, 70, 200, 200);
+
+    // ctx.fillStyle = 'rgb(255,0,0,0.5)';//沒填滿
+    // ctx.strokeRect(70, 70, 100, 100);
+
+    // //==============
+
+    // ctx.beginPath();
+    // ctx.moveTo(75, 50);
+    // ctx.lineTo(100, 75);
+    // ctx.lineTo(100, 25);
+    // ctx.fill();//顏色吸取最後設定處 fillRect
+    // ctx.stroke();//只有線 所以沒填滿
+
+    //============簽名====================
+
+    // //STEP1 先設定位置
+    // canvas.onmouseup = function (e) {
+    //     console.log("mouse up:");
+    // };
+    // canvas.onmousedown = function (e) {
+    //     console.log("mouse down" + e.offsetX)
+    // }
+    // canvas.onmousemove = function (e) {
+    //     // console.log("moving");
+    // }
+
+    // //STEP2 抓點
+    // let isDrag = false;
+    // canvas.onmouseup = function (e) {
+    //     isDrag = false;
+    // };
+    // canvas.onmousedown = function (e) {
+    //     isDrag = true;
+    // }
+    // canvas.onmousemove = function (e) {
+    //     if(isDrag){
+    //         console.log(e.offsetX + "," + e.offsetY);
+    //     }
+    // }
+
+    // //STEP3 
+    let isDrag = false;
+
+    function clearCanvans() {
+        ctx.clearRect(0, 0, canvas.width, canvas.hight);
+
+    }//clear
+
+    canvas.onmouseup = function (e) {
+        isDrag = false;
+    };
+
+    canvas.onmousedown = function (e) {
+        isDrag = true;
+        ctx.strokeStyle = 'rgb(0,0,255)';
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+
+    }
+    canvas.onmousemove = function (e) {
+        if (isDrag) {
+            // console.log(e.offsetX + "," + e.offsetY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+        }
+    }
+
+
+    //============================
+
+    let ball = new Image();
+    ball.src = "ball.png";
+    ball.onload = function () {
+        ctx.drawImage(ball, 240, 240);
+    }//先載入再呼叫
+
+    function moveBall() {
+        ctx.clearRect(240, 240, 48, 48);
+        ctx.drawImage(ball, 0, 0);
+    }
+
+</script>

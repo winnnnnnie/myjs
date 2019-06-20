@@ -1,0 +1,53 @@
+<script>
+    //物件導向 - 屬性不一樣(值) 方法共用(function)
+
+
+    //====定義 1=====
+    let bike = new Object();
+    bike.speed = 12;
+    bike.gear = 2;
+    bike.up
+
+
+    //====玩一下=====
+
+    document.write
+
+    //====定義 2=====
+
+    let bike2 = {
+        speed: 4,
+        gear: 4,
+        upSpeed: function () {
+            this.speed = this.speed * 1.4;
+        }
+    }
+
+
+    //====玩一下=====
+    document.write
+
+
+
+    // =====陣列方法
+    bike['upSpeed']();
+    document.write(bike2.speed + "br");
+
+    let method = 'upSpeed';
+    bike2[method]();
+    document.write(bike2.speed + "<hr>");
+
+
+    // =======for in 一個物件
+    for (let key in bike2) {
+        document.write(key + ":" + bike2[key] + "<br>")
+    }
+
+    document.write("<hr>");
+
+    var brad =123;
+
+    for (let key in window) {
+        document.write(key + ":" + document[key] + "<br>")
+    }
+</script>

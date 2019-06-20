@@ -1,0 +1,98 @@
+<script src="bradapis.js"></script>
+
+<canvas id="canvas" width="480" height="320" style="border: 1px solid black;"> </canvas>
+<script>
+    //============預先要做=============
+    let ctx = canvas.getContext('2d'); //畫布(渲染)
+
+    //控制速度一開始針對單球的設定 , 不過多球不用
+    // let ballX = 10, ballY = 10;
+    // let dx = 10; dy = 16; 
+
+    //============布局=============
+    let bg = new Image();
+    bg.src = 'bg.png'; // 背景
+
+    let ball = new Image();
+    let ball1 = new Image();
+    let ball2 = new Image();
+    let ball3 = new Image();
+    let ballImg = [ball, ball1, ball2, ball3];//將影像存成陣列
+    let balls = [];
+    let ballObj = {
+        x: 0,
+        y: 0,
+        dx : 8,
+        dy : 8,
+        img : 0
+    };
+
+    //仔入影像資料
+    bg.onload = function () {
+        ctx.drawImage(bg, 0, 0);
+        ball.src = 'ball.png';
+        ball1.src = 'ball1.png';
+        ball2.src = 'ball2.png';
+        ball3.src = 'ball3.png';
+        // ball.onload = function () {
+        //     ctx.drawImage(ball, ballX, ballY);
+        // }//先載背景再載球
+    }
+
+    //============移動球============
+
+    function refreshView() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(bg, 0, 0);//背景固定
+
+        for (let i = 0; i < balls.length; i++) {
+            ctx.drawImage(ballImg[balls[i].img], balls[i].x, balls[i].y);
+        }//任何時候想看到的
+    }//將畫面重新繪製
+
+    function go() {
+        for (let i = 0; i < balls.length; i++) {
+            moveBall(balls[i]);
+        }
+    }//頻率
+
+    function moveBall(obj) {
+        if (obj.x < 0 || obj.x + 48 > canvas.width) {
+            obj.dx *= -1;
+        }
+        if (obj.y < 0 || obj.y + 48 > canvas.height) {
+            obj.dy *= -1;
+        }
+        obj.x += obj.dx
+        obj.y += obj.dy;
+    }//物件特性
+
+    // //滑鼠點擊動作
+    // canvas.onmousedown = function (e) {
+    //     let ballObj = {
+    //         x: e.offsetX - 24,
+    //         y: e.offsetY - 24,
+    //         dx: 8,
+    //         dy: 8,
+    //         img: parseInt(Math.random() * 3)
+    //     };
+    //     balls[balls.length] = ballObj;
+    // }
+
+    //clone
+    canvas.onmousedown = function (e) {
+        let ballObject = clone(ballObj);
+
+        ballObject.x = e.offsetX;
+        ballObject.y = e.offsetY;
+        ballObject.img = parseInt(Math.random()*3);
+      
+        balls[balls.length] = ballObject;
+    }
+
+    //時間週期
+    setInterval(refreshView, 30);
+    setInterval(go, 30);
+
+</script>
+<input type="button" onclick="go()" value="Go" />

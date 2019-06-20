@@ -1,0 +1,32 @@
+<script>
+    //==========================
+    // try catch 
+    function test1() {
+        let n = parseInt(Math.random()*101);
+        document.write(n + "<br>");
+        // 進行捕捉
+        try {
+            test2(n);
+            document.write("ok<br>");
+            return;
+        }catch(e){
+            document.write('not much<br>');
+            return;
+        }finally {//最後一定進行此
+            document.write('finally');
+        }
+
+        document.write("test here");//最後不一定會做
+    }
+    function test2(a) {
+        if (a >= 60) {
+            document.write("test2,ok<br>");
+
+        } else{
+            throw"ooop!";
+        }//出錯誤例外
+    }
+
+</script>
+
+<input type="button" value="test" onclick="test1()" />
