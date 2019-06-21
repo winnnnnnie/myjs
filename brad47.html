@@ -1,0 +1,40 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<h1 id='test1'>eeeeeeeeeeeee</h1>
+<div id="container">
+
+    <h1>h1</h1>
+    <p>p1</p>
+    <hr>
+    <h1>h2</h1>
+    <p>p2</p>
+
+</div>
+<hr>
+<input type="button" value="go!" id="go" />
+<input type="text" class="inputText"/><br>
+<input type="text2" class="inputText"/><br>
+<input type="text3" class="inputText"/><br>
+
+<script>
+    //==========重點整理==========
+    // $(selector) => element(s)
+    // h1 $('h1'), a => $('a') => getElementByTag('a')
+
+    $('#test1').click(function () {
+        $('#test1').css('color', 'blue').css('background-color', 'red');
+
+        let ps = $('p');
+        for (let p of ps) {
+            p.style.color = 'blue';
+            p.style.backgroundColor = 'yellow';
+        }
+
+        $jObj = $(document.getElementById('container'));
+        $jObj.css('background-color', 'pink');
+    });
+
+    $('#go').click(function(){
+        $('.inputText').val('hello');
+    });
+  //==========擴充功能==============
+</script>

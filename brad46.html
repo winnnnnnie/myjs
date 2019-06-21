@@ -32,14 +32,14 @@
 </script>
 
 <input type="button" onclick="test1()" value="Test" />
-<form id='myform' action="test1.php" onsubmit="return gotoBackend();">
+<form id='myform' action="test1.php" onsubmit="return gotoBackend();" enctype="multipart/form-data" method='post'>
 
     * Account:<input type=" text" id="Account" /><br>
     * Password1:<input type=" password" id="passwd1" onblur="checkSamePasswd()" /><br>
     * Password2:<input type=" password" id="passwd2" onblur="checkSamePasswd()" /><br>
     * TW Id:<input type=" text" id="twid" /><br>
     Memo:<textarea id='memo'></textarea><br>
-
+    <input type="file" />
     <input type="submit" value="register" />
 
 
